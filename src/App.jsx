@@ -1,15 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { HashRouter, Route, Routes } from 'react-router-dom'
+import Home from './views/Home'
+import Invitation from './views/Invitation'
+import ProtectedRoutes from './components/ProtectedRoutes'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
-      hola
-    </>
+    <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/invitation/:token" element={<Invitation />} />
+          </Route>
+        </Routes>
+    </HashRouter>
   )
 }
 

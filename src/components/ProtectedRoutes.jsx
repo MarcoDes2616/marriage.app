@@ -1,7 +1,7 @@
-import { Navigate, Outlet} from 'react-router-dom';
+import { Navigate, Outlet, useParams} from 'react-router-dom';
 
 const ProtectedRoutes = () => {
-    const token = localStorage.getItem('token');
+    const {token} = useParams()
 
 
     if (token) {
